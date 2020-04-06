@@ -27,15 +27,15 @@
 	//ScatterNames: {   'Scatter': 'B01ScatterBaseGame_0001.png'  /*freespin*/	},
 
 	MovieClips: {
-	    'WIN_EF_GILT_00_':  { start: 0, end: 24, speed: 0.3, suffix:'', frames: [] }, //confetti.png
-	    'RHL_EF_REEL_00_':  { start: 0, end: 9,  speed: 0.3, suffix:'', frames: [] }, //reelanticipation-hd.png
+	    'WIN_EF_GILT_00_':  { start: 0, end: 24, speed: 0.3, suffix:'', frames: [], padStart: 3 }, //confetti.png
+	    'RHL_EF_REEL_00_':  { start: 0, end: 9,  speed: 0.3, suffix:'', frames: [], padStart: 3 }, //reelanticipation-hd.png
 	    'PIC_EF_TOUCH_00_': { start: 0, end: 13, speed: 0.3, suffix:'', frames: [] }, //sparkle.png
                                                              suffix:'',
-	    'SYM_SY_WLHIT_00_': { start: 0, end: 24, speed: 0.3, suffix:'', frames: [] }, //animations/0.png
-	    'SYM_SY_BOTRI_00_': { start: 0, end: 24, speed: 0.3, suffix:'', frames: [] }, //animations/12.png
-	    'SYM_SY_BOSTP_00_': { start: 0, end: 24, speed: 0.3, suffix:'', frames: [] }, //animations/12drop.png
-	    'Ninja_2A_':        { start: 0, end: 24, speed: 0.3, suffix:'', frames: [] }, //animations/13.png
-	    'Ninja_1_':         { start: 0, end: 24, speed: 0.3, suffix:'', frames: [] }, //animations/13drop.png
+	    'SYM_SY_WLHIT_00_': { start: 0, end: 24, speed: 0.3, suffix:'', frames: [], padStart: 3 }, //animations/0.png
+	    'SYM_SY_BOTRI_00_': { start: 0, end: 24, speed: 0.3, suffix:'', frames: [], padStart: 3 }, //animations/12.png
+	    'SYM_SY_BOSTP_00_': { start: 0, end: 24, speed: 0.3, suffix:'', frames: [], padStart: 3 }, //animations/12drop.png
+	    'Ninja_2A_':        { start: 0, end: 24, speed: 0.3, suffix:'', frames: [], padStart: 5 }, //animations/13.png
+	    'Ninja_1_':         { start: 0, end: 24, speed: 0.3, suffix:'', frames: [], padStart: 5 }, //animations/13drop.png
 	},
 
 	Lines:{
@@ -95,7 +95,7 @@
 	    movieNames.forEach((name) => {
 	        let frames = [];
 	        for (let k = App.MovieClips[name].start; k <= App.MovieClips[name].end; k++) {
-	            frames.push(name + k + App.MovieClips[name].suffix);
+	            frames.push(name + k.toString().padStart(App.MovieClips[name].padStart, '0') + App.MovieClips[name].suffix);
 	        }
 	        this.MovieClips[name].frames = frames;
 	    });

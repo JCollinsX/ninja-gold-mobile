@@ -249,6 +249,7 @@
 
         "confetti": { "type": "atlas", "url": "Textures/confetti.json" },
         "panel": { "type": "atlas", "url": "Textures/panel.json" },
+        "sdpanel": { "type": "atlas", "url": "Textures/sdpanel.json" },
         "reelanticipation": { "type": "atlas", "url": "Textures/reelanticipation.json" },
         "sparkle": { "type": "atlas", "url": "Textures/sparkle.json" },
         "symbols": { "type": "atlas", "url": "Textures/symbols.json" },
