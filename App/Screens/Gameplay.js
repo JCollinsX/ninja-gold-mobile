@@ -38,69 +38,7 @@ App.Gameplay = new Screen({
                         { name: 'game board symbols borders', position: [0, -64], childs: [] },
                         { name: 'game board symbols reelanticipation', position: [0, -64], childs: [] },
                         { name: 'game board symbols glow container', position: [0, -64], childs: [] },
-                        {
-                            name: 'win-logo container', position: [-290, 380], alpha:0,
-                            childs: [
-                                { name:'win-logo bg', type:'graphics', alpha:0.5, draw:[['beginFill', 0x000000],['drawRoundedRect', [-824/2,-64/2,824,64], 32 ]]},
-                                { name: 'win-logo label', position:[-170, 0],  type: 'text', text:'Symbol',
-                                    styles: { align: 'Right', fontFamily: 'Arial', fontwegiht: 600, fontSize: '34px',  padding: 5, fill: 0xffffff } },
-                                { name: 'win-logo symbol', position:[-65, 0], scale:[0.19,0.19], type:'sprite', image:'0'},
-                                { name: 'win-logo text', position:[120, 0],  type: 'text', text:'wins 5 on Line 20',
-                                    styles: { align: 'Left', fontFamily: 'Arial', fontwegiht: 600, fontSize: '34px',  padding: 5, fill: 0xffffff } },
-                            ]
-                        },
                         { name:'logo', position:[0, -494], scale: 1.5, type: 'sprite', image:'logo',  /*event:'screen'*/ },
-                        {
-                            name: 'freespin info', position: [0, 0], scale: [1.3, 1.3],
-                            type: 'sprite', image: 'reTrig.png', visible: false,
-                            childs: [
-                                {
-                                    name: 'freespin info text 1',
-                                    position: [0, -105],
-                                    type: 'text',
-                                    text: 'CONGRATULATIONS YOU WIN',
-                                    styles:
-                                        {
-                                            align: 'center',
-                                            fontFamily: '"Times New Roman", Times, serif',
-                                            fontwegiht: 600,
-                                            fontSize: '33px',
-                                            padding: 15,
-                                            fill: 0xFFFF00
-                                        }
-                                },
-                                {
-                                    name: 'freespin info text 2',
-                                    position: [-20, 90],
-                                    type: 'text',
-                                    text: 'During bonus all symbols pay on \n any position.',
-                                    styles:
-                                        {
-                                            align: 'center',
-                                            fontFamily: '"Times New Roman", Times, serif',
-                                            fontwegiht: 600,
-                                            fontSize: '23px',
-                                            padding: 15,
-                                            fill: 0xFFFF00
-                                        }
-                                },
-                                {
-                                    name: 'freespin info text 3',
-                                    position: [0, -10],
-                                    type: 'text',
-                                    text: '7 BONUSSPINS',
-                                    styles:
-                                        {
-                                            align: 'center',
-                                            fontFamily: '"Times New Roman", Times, serif',
-                                            fontwegiht: 900,
-                                            fontSize: '52px',
-                                            padding: 15,
-                                            fill: 0xFFFF00
-                                        }
-                                }
-                            ]
-                        },
                         {
                             name: 'account data', position: [470, -505], anchor: [1, 0.5], alpha: 1,
                             type: 'text', text: ' ', styles: { fontFamily: 'Arial', fontSize: '22px', padding: 20, fill: 0xffea00}
@@ -117,25 +55,7 @@ App.Gameplay = new Screen({
                 {
                     name: 'control panel container wrapper', scale: [1, 1],
                     position: [0, (1080 - 216) / 2], childs: [
-                        {
-                            name: 'maxbet button', position: [74, 34], scale: [1, 1],
-                            button: 'button', type: 'sprite', image: 'Max_Button',
-                            childs: [
-                                { name: 'maxbet button glow', type: 'sprite', image: 'Max_ButtonPress', alpha: 0 },
-                                { name: 'maxbet label', position: [16, 0], type: 'text', text: 'MAX', styles: { align: 'right', fontFamily: 'Arial', fontSize: '20px', padding: 5, fill: 0xffffff, fontWeight: 'bold', "lineJoin": "bevel" } },
-                                { name: 'maxbet button inactive', type: 'sprite', image: 'Max_ButtonDeactivate', alpha: 0 },
-                            ]
-                        },
-                        {
-                            name: 'autospin button bar', position: [-74, 34], scale: [1, 1],
-                            childs: [
-                                { name: 'autospin button', button: 'button', type: 'sprite', image: 'Auto_Button' },
-                                { name: 'autospin button glow', type: 'sprite', image: 'Auto_ButtonPress', alpha: 0 },
-                                { name: 'autospin button disabled', type: 'sprite', image: 'Auto_ButtonOver', visible: false, button: 'disabled button' },
-                                { name: 'autospin button text', position: [-16, 0], type: 'text', text: 'AUTO', styles: { align: 'left', fontFamily: 'Arial', fontSize: '20px', padding: 5, fill: 0xffffff, fontWeight: 'bold', "lineJoin": "bevel" } },
-                            ]
-                        },
-                        {
+                        /*{
                             name: 'spin button bar', position: [0, 0], scale: [1, 1],
                             childs: [
                                 {
@@ -188,121 +108,18 @@ App.Gameplay = new Screen({
                                     ]
                                 }
                             ]
-                        },
+                        },*/
                         {
-                            name: 'menu button', position: [-800, 25],
-                            button: 'button', type: 'sprite', image: 'Info_Button', //"w":70,"h":70
+                            name: 'bottom freespin bar',
+                            visible: false,
+                            position: [0, -40],
                             childs: [
-                                { name: 'menu button glow', type: 'sprite', image: 'Info_Press', alpha: 0 },
+                                { name: 'bottom freespin bar bg', type: 'graphics',draw: [['beginFill', 0x595959], ['drawRect', [-1920 / 2, -55 / 2, 1920, 55]]] },
+                                { name: 'freespin totalwin text', position: [-416, 0], type: 'text', text: 'TOTAL WIN: 12.5', styles: { fontFamily: 'Arial', fontSize: '40px', padding: 5, fill: 0x000000, fontWeight: 'Bold' } },
+                                { name: 'freespin count text', position: [416, 0], type: 'text', text: 'SPINS: 8', styles: { fontFamily: 'Arial', fontSize: '40px', padding: 5, fill: 0x000000, fontWeight: 'Bold' } },
                             ]
                         },
-                        {
-                            name: 'credits bar', position: [-580, 25], type: 'sprite', image: 'Balance_Window',
-                            childs: [
-                                {
-                                    name: 'credits bar label', position: [0, -22],  type: 'text', text: 'BALANCE',
-                                    styles: { fontFamily: 'Arial', fontSize: '20px', padding: 5, fill: 0xffffff, fontWeight: 'bold', "lineJoin": "bevel" }
-                                },
-                                {
-                                    name: 'credits text', position: [0, 10], type: 'text',
-                                    styles: { fontFamily: 'Arial', fontSize: '40px', padding: 5, fill: 0xffffff, fontWeight: 'bold', stroke: 'black', 'strokeThickness': 5, "lineJoin": "bevel" }
-                                },
-                            ]
-                        },
-                        {
-                            name: 'lines bar', position: [-270, 25], type: 'sprite', image: 'Ways_Window', //"w":176,"h":80
-                            childs: [
-                                {
-                                    name: 'lines bar label', position: [0, -22], type: 'text', text: 'LINES',
-                                    styles: {
-                                        fontFamily: 'Arial', fontSize: '20px', padding: 5, fill: 0xffffff, fontWeight: 'bold', stroke: 'black', 'strokeThickness': 5, "lineJoin": "bevel",
-                                    }
-                                },
-                                {
-                                    name: 'lines bar text', position: [0, 10], type: 'text',  text: '30',
-                                    styles: {
-                                        fontFamily: 'Arial', fontSize: '40px', padding: 5, fill: 0xffffff, fontWeight: 'Bold', stroke: 'black', 'strokeThickness': 5, "lineJoin": "bevel"
-                                    }
-                                },
-                            ]
-                        },
-                        {
-                            name: 'betperline bar', position: [235, 25], type: 'sprite', image: 'BetPerDenom_Button', //"w":176,"h":80
-                            childs: [
-                                {
-                                    name: 'betperline bar label',  position: [0, -25],  type: 'text',  text: 'BET PER LINE',
-                                    styles: { fontFamily: 'Arial', fontSize: '16px', padding: 5,  fill: 0xffffff, fontWeight: 'bold', stroke: 'black','strokeThickness': 5,  "lineJoin": "bevel"}
-                                },
-                                {
-                                    name: 'betperline bar text',  position: [0, 5],  type: 'text',
-                                    styles: {fontFamily: 'Arial', fontSize: '40px', padding: 5, fill: 0xffffff,  fontWeight: 'Bold',stroke: 'black', 'strokeThickness': 5, "lineJoin": "bevel"}
-                                },
-                                {
-                                    name: 'betperline bar down', position: [-60, 5], button: 'button', type: 'sprite', image: 'LeftArrow_Button', childs: [
-                                        { name: 'betperline bar down glow', type: 'sprite', image: 'LeftArrow_ButtonPress', alpha: 0 },
-                                        { name: 'betperline bar down inactive', type: 'sprite', image: 'LeftArrow_ButtonDeactivate', alpha: 0 },
-                                    ]
-                                },
-                                {
-                                    name: 'betperline bar up', position: [60, 5], button: 'button', type: 'sprite', image: 'RightArrow_Button', childs: [
-                                        { name: 'betperline bar up glow', type: 'sprite', image: 'RightArrow_ButtonPress', alpha: 0 },
-                                        { name: 'betperline bar up inactive', type: 'sprite', image: 'RightArrow_ButtonDeactivate', alpha: 0 },
-                                    ]
-                                },
-                                { name: 'betperline bar progressMask', position: [-110 / 2, 30], type: 'graphics', draw: [['beginFill', 0xff0000], ['drawRect', [-110 / 2, -20 / 2, 110, 20]]], alpha: 0.5 },
-                                { name: 'betperline bar progressBack', position: [0, 30], type: 'sprite', image: 'Meter_Back' },
-                                {
-                                    name: 'betperline bar progressFill', position: [0, 28], type: 'sprite', image: 'Meter_Fill', //"w":109,"h":12
-                                    mask: 'betperline bar progressMask'
-                                }
-                            ]
-                        },
-                        {
-                            name: 'denom bar', position: [415, 25], type: 'sprite', image: 'BetPerDenom_Button',
-                            childs: [
-                                {
-                                    name: 'denom bar label', position: [0, -22], type: 'text', text: 'DENOM',
-                                    styles: { fontFamily: 'Arial', fontSize: '22px', padding: 5, fill: 0xffffff, fontWeight: 'bold', stroke: 'black', 'strokeThickness': 5, "lineJoin": "bevel" }
-                                },
-                                {
-                                    name: 'denom bar text', position: [0, 8], type: 'text',
-                                    styles: { fontFamily: 'Arial', fontSize: '38px', padding: 5, fill: 0xffffff, fontWeight: 'Bold', stroke: 'black', 'strokeThickness': 5, "lineJoin": "bevel" }
-                                },
-                                {
-                                    name: 'denom bar down', position: [-60, 5], button: 'button', type: 'sprite', image: 'LeftArrow_Button', childs: [
-                                        { name: 'denom bar down glow', type: 'sprite', image: 'LeftArrow_ButtonPress', alpha: 0 },
-                                        { name: 'denom bar down inactive', type: 'sprite', image: 'LeftArrow_ButtonDeactivate', alpha: 0 },
-                                    ]
-                                },
-                                {
-                                    name: 'denom bar up', position: [60, 5], button: 'button', type: 'sprite', image: 'RightArrow_Button', childs: [
-                                        { name: 'denom bar up glow', type: 'sprite', image: 'RightArrow_ButtonPress', alpha: 0 },
-                                        { name: 'denom bar up inactive', type: 'sprite', image: 'RightArrow_ButtonDeactivate', alpha: 0 },
-                                    ]
-                                },
-                                { name: 'denom bar progressMask', position: [-110 / 2, 30], type: 'graphics', draw: [['beginFill', 0xff0000], ['drawRect', [-110 / 2, -20 / 2, 110, 20]]], alpha: 0.5 },
-                                { name: 'denom bar progressBack', position: [0, 30], type: 'sprite', image: 'Meter_Back' },
-                                {
-                                    name: 'denom bar progressFill', position: [0, 28], type: 'sprite', image: 'Meter_Fill', //"w":109,"h":12
-                                    mask: 'denom bar progressMask'
-                                }
-                            ]
-                        },
-                        {
-                            name: 'win bar', position: [684, 8], drawed: 0,
-                            type: 'sprite', image: 'Win_WindowAlt', //"w":338,"h":110
-                            childs: [
-                                {
-                                    name: 'win bar label', position: [0, -28], type: 'text', text: 'WIN',
-                                    styles: { fontFamily: 'Arial', fontSize: '30px', padding: 20, fill: 0xffe000, fontWeight: 'bold', stroke: 'yellow', 'strokeThickness': 0.2, "lineJoin": "bevel" }
-                                },
-                                {
-                                    name: 'win bar text', position: [0, 16], type: 'text',
-                                    styles: { fontFamily: 'Arial', fontSize: '50px', padding: 5, fill: 0xffe000, fontWeight: 'bold', stroke: 'white', 'strokeThickness': 1, "lineJoin": "bevel" }
-                                },
-                            ]
-                        },
-                        { name: 'bottom bar bg', type: 'graphics', position: [0, 47], draw: [['beginFill', 0x000000], ['drawRect', [-1920 / 2, -120 / 2, 1920, 120]]], },
+                        { name: 'bottom bar bg', type: 'graphics', position: [0, 48], draw: [['beginFill', 0x000000], ['drawRect', [-1920 / 2, -120 / 2, 1920, 120]]], },
                         {
                             name: 'ControlContainer', visible: false, position: [0, -485],
                             childs: [
@@ -312,7 +129,7 @@ App.Gameplay = new Screen({
                                 {
                                     name: 'Control title', type: 'text', position: [0, -430], text: 'GAME SETTINGS',
                                     styles: {
-                                        align: 'Right', fontFamily: 'Arial', fontwegiht: 'Bold', fontSize: '65px',  padding: 5, fill: 0xffffff
+                                        align: 'Right', fontFamily: 'Arial', fontWeight: 'Bold', fontSize: '65px',  padding: 5, fill: 0xffffff
                                     }
                                 },
                                 {
@@ -342,12 +159,351 @@ App.Gameplay = new Screen({
                                 {
                                     name: 'Control setting container',
                                     visible: true,
-                                    childs: []
+                                    childs: [
+                                        {
+                                            name: 'control setting sound container',
+                                            position: [0, -100],
+                                            childs: [
+                                                {
+                                                    type: 'graphics',
+                                                    draw: [
+                                                        ['beginFill', 0x545454],
+                                                        ['drawRoundedRect', [-1300 / 2, -200 / 2, 1300, 200, 40]]
+                                                    ]
+                                                },
+                                                {
+                                                    type: 'graphics',
+                                                    draw: [
+                                                        ['beginFill', 0x000000],
+                                                        ['drawRoundedRect', [-1290 / 2, -190 / 2, 1290, 190, 40]]
+                                                    ]
+                                                },
+                                                {
+                                                    name: 'control setting sound label',
+                                                    type: 'text',
+                                                    text: 'SOUND',
+                                                    styles: {
+                                                        align: 'Right', fontFamily: 'Arial', fontWeight: 'Bold', fontSize: '45px',  padding: 5, fill: 0xffffff
+                                                    },
+                                                    position: [-120, 0]
+                                                },
+                                                {
+                                                    name: 'control setting sound toggle',
+                                                    event: 'toggle button',
+                                                    position: [120, 0],
+                                                    toggle: 'on',
+                                                    childs: [
+                                                        {
+                                                            name: 'control setting sound toggle on',
+                                                            visible: true,
+                                                            childs: [
+                                                                {
+                                                                    type: 'sprite',
+                                                                    image: 'toggleon'
+                                                                },
+                                                                {
+                                                                    type: 'sprite',
+                                                                    image: 'sliderbutton',
+                                                                    position: [80, 0]
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            name: 'control setting sound toggle off',
+                                                            visible: false,
+                                                            childs: [
+                                                                {
+                                                                    type: 'sprite',
+                                                                    image: 'toggleoff'
+                                                                },
+                                                                {
+                                                                    type: 'sprite',
+                                                                    image: 'sliderbutton',
+                                                                    position: [-80, 0]
+                                                                }
+                                                            ]
+                                                        },
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            name: 'control setting autoturbo container',
+                                            position: [0, 180],
+                                            childs: [
+                                                {
+                                                    type: 'graphics',
+                                                    draw: [
+                                                        ['beginFill', 0x545454],
+                                                        ['drawRoundedRect', [-1300 / 2, -310 / 2, 1300, 310, 40]]
+                                                    ]
+                                                },
+                                                {
+                                                    type: 'graphics',
+                                                    draw: [
+                                                        ['beginFill', 0x000000],
+                                                        ['drawRoundedRect', [-1290 / 2, -300 / 2, 1290, 300, 40]]
+                                                    ]
+                                                },
+                                                {
+                                                    name: 'control setting auto container',
+                                                    position: [0, -60],
+                                                    childs: [
+                                                        {
+                                                            type: 'sprite',
+                                                            position: [-550, 0],
+                                                            image: 'menu_auto'
+                                                        },
+                                                        {
+                                                            type: 'text',
+                                                            text: 'AUTO',
+                                                            position: [-420, 0],
+                                                            styles: {
+                                                                fill: 0xffffff,
+                                                                fontSize: '45px',
+                                                                fontWeight: 'Bold',
+                                                                fontFamily: 'Arial'
+                                                            }
+                                                        },
+                                                        {
+                                                            name: 'autoplay bar',
+                                                            position: [200, 0],
+                                                            childs: [
+                                                                {
+                                                                    name: 'autoplay bar text',  position: [0, 5],  type: 'text', text: '0',
+                                                                    styles: {fontFamily: 'Arial', fontSize: '60px', padding: 5, fill: 0xffffff,  fontWeight: 'Bold',stroke: 'black', 'strokeThickness': 5, "lineJoin": "bevel"}
+                                                                },
+                                                                {
+                                                                    name: 'autoplay bar down', position: [-120, 5], button: 'button', type: 'sprite', image: 'helpscreenleft_hd', childs: [
+                                                                        { name: 'autoplay bar down glow', type: 'sprite', image: 'helpscreenleftpressed_hd', alpha: 0 },
+                                                                        { name: 'autoplay bar down inactive', type: 'sprite', image: 'helpscreenleftdisabled_hd', alpha: 0 },
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    name: 'autoplay bar up', position: [120, 5], button: 'button', type: 'sprite', image: 'helpscreenright_hd', childs: [
+                                                                        { name: 'autoplay bar up glow', type: 'sprite', image: 'helpscreenrightpressed_hd', alpha: 0 },
+                                                                        { name: 'autoplay bar up inactive', type: 'sprite', image: 'helpscreenrightdisabled_hd', alpha: 0 },
+                                                                    ]
+                                                                },
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    name: 'control setting turbo container',
+                                                    position: [0, 60],
+                                                    childs: [
+                                                        {
+                                                            name: 'control setting turbo label',
+                                                            type: 'text',
+                                                            text: 'TURBO',
+                                                            styles: {
+                                                                align: 'Right', fontFamily: 'Arial', fontWeight: 'Bold', fontSize: '45px',  padding: 5, fill: 0xffffff
+                                                            },
+                                                            position: [-120, 0]
+                                                        },
+                                                        {
+                                                            name: 'control setting turbo toggle',
+                                                            event: 'toggle button',
+                                                            position: [120, 0],
+                                                            toggle: 'off',
+                                                            childs: [
+                                                                {
+                                                                    name: 'control setting turbo toggle on',
+                                                                    visible: false,
+                                                                    childs: [
+                                                                        {
+                                                                            type: 'sprite',
+                                                                            image: 'toggleon'
+                                                                        },
+                                                                        {
+                                                                            type: 'sprite',
+                                                                            image: 'sliderbutton',
+                                                                            position: [80, 0]
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    name: 'control setting turbo toggle off',
+                                                                    visible: true,
+                                                                    childs: [
+                                                                        {
+                                                                            type: 'sprite',
+                                                                            image: 'toggleoff'
+                                                                        },
+                                                                        {
+                                                                            type: 'sprite',
+                                                                            image: 'sliderbutton',
+                                                                            position: [-80, 0]
+                                                                        }
+                                                                    ]
+                                                                },
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 },
                                 {
                                     name: 'Control betsettings container',
                                     visible: false,
-                                    childs: []
+                                    childs: [
+                                        {
+                                            name: 'control betsettings denom container',
+                                            position: [0, -200],
+                                            childs: [
+                                                {
+                                                    type: 'graphics',
+                                                    draw: [
+                                                        ['beginFill', 0x545454],
+                                                        ['drawRoundedRect', [-1300 / 2, -200 / 2, 1300, 200, 40]]
+                                                    ]
+                                                },
+                                                {
+                                                    type: 'graphics',
+                                                    draw: [
+                                                        ['beginFill', 0x000000],
+                                                        ['drawRoundedRect', [-1290 / 2, -190 / 2, 1290, 190, 40]]
+                                                    ]
+                                                },
+                                                {
+                                                    type: 'sprite',
+                                                    position: [-550, 0],
+                                                    image: 'denom'
+                                                },
+                                                {
+                                                    type: 'text',
+                                                    text: 'DENOM',
+                                                    position: [-400, 0],
+                                                    styles: {
+                                                        fill: 0xffffff,
+                                                        fontSize: '40px',
+                                                        fontWeight: 'Bold',
+                                                        fontFamily: 'Arial'
+                                                    }
+                                                },
+                                                {
+                                                    name: 'denom bar',
+                                                    position: [200, 0],
+                                                    childs: [
+                                                        {
+                                                            name: 'denom bar text', position: [0, 8], type: 'text',
+                                                            styles: { fontFamily: 'Arial', fontSize: '60px', padding: 5, fill: 0xffffff, fontWeight: 'Bold', stroke: 'black', 'strokeThickness': 5, "lineJoin": "bevel" }
+                                                        },
+                                                        {
+                                                            name: 'denom bar down', position: [-120, 5], button: 'button', type: 'sprite', image: 'helpscreenleft_hd', childs: [
+                                                                { name: 'denom bar down glow', type: 'sprite', image: 'helpscreenleftpressed_hd', alpha: 0 },
+                                                                { name: 'denom bar down inactive', type: 'sprite', image: 'helpscreenleftdisabled_hd', alpha: 0 },
+                                                            ]
+                                                        },
+                                                        {
+                                                            name: 'denom bar up', position: [120, 5], button: 'button', type: 'sprite', image: 'helpscreenright_hd', childs: [
+                                                                { name: 'denom bar up glow', type: 'sprite', image: 'helpscreenrightpressed_hd', alpha: 0 },
+                                                                { name: 'denom bar up inactive', type: 'sprite', image: 'helpscreenrightdisabled_hd', alpha: 0 },
+                                                            ]
+                                                        },
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            name: 'control betsettings betperline container',
+                                            position: [0, 80],
+                                            childs: [
+                                                {
+                                                    type: 'graphics',
+                                                    draw: [
+                                                        ['beginFill', 0x545454],
+                                                        ['drawRoundedRect', [-1300 / 2, -200 / 2, 1300, 200, 40]]
+                                                    ]
+                                                },
+                                                {
+                                                    type: 'graphics',
+                                                    draw: [
+                                                        ['beginFill', 0x000000],
+                                                        ['drawRoundedRect', [-1290 / 2, -190 / 2, 1290, 190, 40]]
+                                                    ]
+                                                },
+                                                {
+                                                    type: 'sprite',
+                                                    position: [-550, 0],
+                                                    image: 'denom'
+                                                },
+                                                {
+                                                    type: 'text',
+                                                    text: 'BET  PER\nLINE',
+                                                    position: [-400, 0],
+                                                    styles: {
+                                                        align: 'center',
+                                                        fill: 0xffffff,
+                                                        fontSize: '40px',
+                                                        fontWeight: 'Bold',
+                                                        fontFamily: 'Arial'
+                                                    }
+                                                },
+                                                {
+                                                    name: 'betperline bar',
+                                                    position: [200, 0],
+                                                    childs: [
+                                                        {
+                                                            name: 'betperline bar text',  position: [0, 5],  type: 'text',
+                                                            styles: {fontFamily: 'Arial', fontSize: '60px', padding: 5, fill: 0xffffff,  fontWeight: 'Bold',stroke: 'black', 'strokeThickness': 5, "lineJoin": "bevel"}
+                                                        },
+                                                        {
+                                                            name: 'betperline bar down', position: [-120, 5], button: 'button', type: 'sprite', image: 'helpscreenleft_hd', childs: [
+                                                                { name: 'betperline bar down glow', type: 'sprite', image: 'helpscreenleftpressed_hd', alpha: 0 },
+                                                                { name: 'betperline bar down inactive', type: 'sprite', image: 'helpscreenleftdisabled_hd', alpha: 0 },
+                                                            ]
+                                                        },
+                                                        {
+                                                            name: 'betperline bar up', position: [120, 5], button: 'button', type: 'sprite', image: 'helpscreenright_hd', childs: [
+                                                                { name: 'betperline bar up glow', type: 'sprite', image: 'helpscreenrightpressed_hd', alpha: 0 },
+                                                                { name: 'betperline bar up inactive', type: 'sprite', image: 'helpscreenrightdisabled_hd', alpha: 0 },
+                                                            ]
+                                                        },
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            name: 'control betsettings lines container',
+                                            position: [0, 360],
+                                            childs: [
+                                                {
+                                                    type: 'graphics',
+                                                    draw: [
+                                                        ['beginFill', 0x545454],
+                                                        ['drawRoundedRect', [-1280 / 2, -200 / 2, 1280, 200, 40]]
+                                                    ]
+                                                },
+                                                {
+                                                    type: 'graphics',
+                                                    draw: [
+                                                        ['beginFill', 0x000000],
+                                                        ['drawRoundedRect', [-1270 / 2, -190 / 2, 1270, 190, 40]]
+                                                    ]
+                                                },
+                                                {
+                                                    type: 'text',
+                                                    text: 'LINES',
+                                                    position: [-400, 0],
+                                                    styles: {
+                                                        align: 'center',
+                                                        fill: 0xffffff,
+                                                        fontSize: '40px',
+                                                        fontWeight: 'Bold',
+                                                        fontFamily: 'Arial'
+                                                    }
+                                                },
+                                                {
+                                                    name: 'line text', position: [200, 0], type: 'text', text: '30',
+                                                    styles: { fontFamily: 'Arial', fontSize: '60px', padding: 5, fill: 0xffffff, fontWeight: 'Bold', stroke: 'black', 'strokeThickness': 5, "lineJoin": "bevel" }
+                                                },
+                                            ]
+                                        }
+                                    ]
                                 },
                                 {
                                     name: 'Control controls',
@@ -398,6 +554,17 @@ App.Gameplay = new Screen({
                                 }
                             ]
                         },
+                        {
+                            name: 'win-logo container', position: [0, 19], alpha: 0,
+                            childs: [
+                                { name:'win-logo bg', type:'graphics', draw:[['beginFill', 0x38383a],['drawRoundedRect', [-824/2,-64/2,824,64], 32 ]]},
+                                { name: 'win-logo label', position:[-170, 0],  type: 'text', text:'Symbol',
+                                    styles: { align: 'Right', fontFamily: 'Arial', fontWeight: 600, fontSize: '34px',  padding: 5, fill: 0xffffff } },
+                                { name: 'win-logo symbol', position:[-65, 0], scale:[0.19,0.19], type:'sprite', image:'0'},
+                                { name: 'win-logo text', position:[120, 0],  type: 'text', text:'wins 5 on Line 20',
+                                    styles: { align: 'Left', fontFamily: 'Arial', fontWeight: 600, fontSize: '34px',  padding: 5, fill: 0xffffff } },
+                            ]
+                        },
                         { name: 'bottom toggle menu', type: 'sprite', image: 'menu_open', button: 'button', position: [0, -430], childs: [{name: 'bottom toggle menu glow'}], hit: ['rect', 830, 400, 120, 120] },
                         {
                             name: 'bottom bar', position: [0, 88], childs: [
@@ -406,133 +573,6 @@ App.Gameplay = new Screen({
                                 { name: 'win text', position: [416, 0], type: 'text', text: '100', styles: { fontFamily: 'Arial', fontSize: '40px', padding: 5, fill: 0xffffff, fontWeight: 'Bold' } },
                             ]
                         }
-                    ]
-                }
-            ]
-        },
-        {
-            name: 'MenuContainer', visible: false,
-            scaleStrategyPortrait: ['fit-to-screen', 1920, 1080],
-            scaleStrategyLandscape: ['fit-to-screen', 1920, 1080],
-            childs: [
-                {
-                    name: 'menu overlay',
-                    childs: [
-                        {
-                            name: 'menu overlay rect', event: 'menu overlay', preventDefault:false, alpha:0,
-                            type: 'graphics', draw: [['beginFill', 0xffffffff], ['drawRect', [-1920, -1920, 3840, 3840]]],
-                        },
-                        {
-                            name: 'menu items container', position: [-750 , 300], //scale:[1.2, 1],  type: 'sprite', image:'controlpopup',
-                            childs:[/*
-                                {
-                                    name: 'menu button lobby', position: [0, -1.5 * 60],
-                                    button: 'button', type: 'sprite', image: 'InfoMenu_Button', //"w":186,"h":52
-                                    childs: [
-                                        { name: 'menu button lobby glow', type: 'sprite', image: 'InfoMenu_ButtonPress', alpha: 0 },
-                                        { name: 'menu button lobby text', type: 'text', text: 'LOBBY',
-                                            styles: { align: 'center', fontFamily: 'Arial', fontWeight: 'Bold',fontSize: '18px',padding: 20,fill: 0xffffff}
-                                        }
-                                    ]
-                                },*/
-                                {
-                                    name: 'menu button sound', position:[0 , -0.5*60],
-                                    button: 'button', type: 'sprite', image: 'InfoMenu_Button',
-                                    childs: [
-                                        { name: 'menu button sound glow', type: 'sprite', image: 'InfoMenu_ButtonPress', alpha: 0 },
-                                        {
-                                            name: 'menu button sound text', position: [-10, 0], type: 'text', text: 'SOUND',
-                                            styles: {fontFamily: 'Arial', fontWeight: 'Bold', fontSize: '18px', padding: 20, fill: 0xffffff, }
-                                        },
-                                        { name: 'menu button sound check', position: [50, 0], scale: [0.7, 0.9], type: 'sprite', image: 'TurboSoundEnabled_Button' },
-                                        { name: 'menu button sound off', position: [50, 0], scale: [0.7, 0.9], type: 'sprite', image: 'TurboSoundDisabled_Button', visible: false }
-                                    ]
-                                },
-                                {
-                                    name: 'menu button turbo', position: [0, 0.5 * 60], button: 'button', type: 'sprite', image: 'InfoMenu_Button',
-                                    childs: [
-                                        { name: 'menu button turbo glow', type: 'sprite', image: 'InfoMenu_ButtonPress', alpha: 0 },
-                                        { name: 'menu button turbo text', position: [-10, 0], type: 'text', text: 'TURBO',
-                                            styles: { fontFamily: 'Arial', fontWeight: 'Bold', fontSize: '18px', padding: 20, fill: 0xffffff, }
-                                        },
-                                        { name: 'menu button turbo check', position: [50, 0], scale: [0.7, 0.9], type: 'sprite', image: 'TurboSoundEnabled_Button', },
-                                        { name: 'menu button turbo off', position: [50, 0], scale: [0.7, 0.9], type: 'sprite', image: 'TurboSoundDisabled_Button', visible: true }
-                                    ]
-                                },
-                                {
-                                    name: 'menu button help', position:[0 , 1.5*60],
-                                    button: 'button', type: 'sprite', image: 'InfoMenu_Button',
-                                    childs: [
-                                        { name: 'menu button help glow', type: 'sprite', image: 'InfoMenu_ButtonPress', alpha: 0 },
-                                        {
-                                            name: 'menu button help text', type: 'text', text: 'HELP/PAY',
-                                            styles: {
-                                                align: 'center', fontFamily: 'Arial', fontWeight: 'Bold',  fontSize: '18px',  padding: 20, fill: 0xffffff, "lineJoin": "bevel",
-                                            }
-                                        }
-                                    ]
-                                },
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            name: 'AutoMenuContainer',
-            visible: false,
-            scaleStrategyPortrait: ['fit-to-screen', 1920, 1080],
-            scaleStrategyLandscape: ['fit-to-screen', 1920, 1080],
-            childs: [
-                {
-                    name: 'automenu overlay rect', event: 'automenu overlay', preventDefault:false, alpha:0,
-                    type: 'graphics', draw: [['beginFill', 0xffffffff], ['drawRect', [-1920, -1920, 3840, 3840]]],
-                },
-                {
-                    name: 'automenu items container', position: [-100, 340],  //type: 'sprite', image: 'autopopup',
-                    childs: [
-                        { //"w":132,"h":52
-                            name: 'automenu_500', position: [0, -2*62], step: 500, button: 'button',  type: 'sprite', image: 'AutoMenu_Button', childs: [
-                                { name: 'automenu_500 glow', type: 'sprite', image: 'AutoMenu_ButtonPress', alpha: 0 },
-                                { name: 'automenu_500 text',type: 'text', text: '500', styles: { fontFamily:'Arial', fontWeight: 'Bold', fontSize: '35px', padding: 20,fill: 0xffffff}}
-                            ]
-                        },
-                        { //"w":132,"h":52
-                            name: 'automenu_200', position: [140 / 2, -1 * 62], step: 200, button: 'button', type: 'sprite', image: 'AutoMenu_Button', childs: [
-                                { name: 'automenu_200 glow', type: 'sprite', image: 'AutoMenu_ButtonPress', alpha: 0 },
-                                { name: 'automenu_200 text', type: 'text', text: '200', styles: { fontFamily: 'Arial', fontWeight: 'Bold', fontSize: '35px', padding: 20, fill: 0xffffff } }
-                            ]
-                        },
-                        { //"w":132,"h":52
-                            name: 'automenu_100', position: [-140 / 2, -1 * 62], step: 100, button: 'button', type: 'sprite', image: 'AutoMenu_Button', childs: [
-                                { name: 'automenu_100 glow', type: 'sprite', image: 'AutoMenu_ButtonPress', alpha: 0 },
-                                { name: 'automenu_100 text', type: 'text', text: '100', styles: { fontFamily: 'Arial', fontWeight: 'Bold', fontSize: '35px', padding: 20, fill: 0xffffff } }
-                            ]
-                        },
-                        { //"w":132,"h":52
-                            name: 'automenu_50', position: [140 / 2, -0 * 62], step: 50, button: 'button', type: 'sprite', image: 'AutoMenu_Button', childs: [
-                                { name: 'automenu_50 glow', type: 'sprite', image: 'AutoMenu_ButtonPress', alpha: 0 },
-                                { name: 'automenu_50 text', type: 'text', text: '50', styles: { fontFamily: 'Arial', fontWeight: 'Bold', fontSize: '35px', padding: 20, fill: 0xffffff } }
-                            ]
-                        },
-                        { //"w":132,"h":52
-                            name: 'automenu_100', position: [-140 / 2, -0 * 62], step: 25, button: 'button', type: 'sprite', image: 'AutoMenu_Button', childs: [
-                                { name: 'automenu_25 glow', type: 'sprite', image: 'AutoMenu_ButtonPress', alpha: 0 },
-                                { name: 'automenu_25 text', type: 'text', text: '25', styles: { fontFamily: 'Arial', fontWeight: 'Bold', fontSize: '35px', padding: 20, fill: 0xffffff } }
-                            ]
-                        },
-                        { //"w":132,"h":52
-                            name: 'automenu_10', position: [140 / 2, 1 * 62], step: 10, button: 'button', type: 'sprite', image: 'AutoMenu_Button', childs: [
-                                { name: 'automenu_10 glow', type: 'sprite', image: 'AutoMenu_ButtonPress', alpha: 0 },
-                                { name: 'automenu_10 text', type: 'text', text: '10', styles: { fontFamily: 'Arial', fontWeight: 'Bold', fontSize: '35px', padding: 20, fill: 0xffffff } }
-                            ]
-                        },
-                        { //"w":132,"h":52
-                            name: 'automenu_off', position: [-140 / 2, 1 * 62], step: 0, button: 'button', type: 'sprite', image: 'AutoMenu_Button', childs: [
-                                { name: 'automenu_off glow', type: 'sprite', image: 'AutoMenu_ButtonPress', alpha: 0 },
-                                { name: 'automenu_off text', type: 'text', text: 'OFF', styles: { fontFamily: 'Arial', fontWeight: 'Bold', fontSize: '35px', padding: 20, fill: 0xffffff } }
-                            ]
-                        },
                     ]
                 }
             ]
@@ -1162,7 +1202,7 @@ App.Gameplay = new Screen({
                                     ]
                                 },
                                 {
-                                    name: 'pick jackpot earth overflow value', scale: 2, type: 'bitmap-text', text: 'x12', position: [120, 0], visible: false,
+                                    name: 'pick jackpot earth overflow value', type: 'bitmap-text', text: 'x12', position: [120, 0], visible: false,
                                     styles: { align: 'right', font: { name: 'green', size: 70 }, tint: 0xFFFFFF }
                                 },
                                 { name: 'pick jackpot earth glow', scale: 2, position: [-84, 0], type: 'sprite', image: 'jpearthglow', alpha: 0 },
@@ -1270,6 +1310,28 @@ App.Gameplay = new Screen({
                         },
                     ]
                 }
+            ]
+        },
+        {
+            name: 'SpinContainer',
+            scaleStrategyPortrait: ['fit-to-screen', 1920, 1080],
+            scaleStrategyLandscape: ['fit-to-screen', 1920, 1080],
+            childs: [
+                {
+                    name: 'spin button container',
+                    position: [750, -100],
+                    childs: [
+                        {
+                            name: 'spin button bar',
+                            childs: [
+                                { name: 'spin button', alpha: 0.5, button: 'button', type: 'sprite', image: 'spinbutton', childs: [ { name: 'spin button glow' }]},
+                                { name: 'spinstop button', visible: false, alpha: 0.5, button: 'button', type: 'sprite', image: 'spinstopbutton', childs: [ { name: 'spinstop button glow' }]},
+                                { name: 'spin button text1', visible: false, type: 'text', text: 'START', styles: { fill: 0xffffff, fontSize: '45px', fontWeight: 'Bold', fontFamily: 'Arial' }},
+                                { name: 'autospin button text', type: 'text', text: '10', styles: { fill: 0xffffff, fontSize: '45px', fontWeight: 'Bold', fontFamily: 'Arial' }}
+                            ]
+                        }
+                    ]
+                },
             ]
         },
         {
@@ -1421,17 +1483,19 @@ App.Gameplay = new Screen({
                         {
                             type: 'sprite',
                             position: [-650, -110],
+                            scale: 2,
                             image: 'bonus_freespin_bannerflair'
                         },
                         {
                             type: 'sprite',
                             position: [650, -110],
-                            scale: [-1, 1],
+                            scale: [-2, 2],
                             image: 'bonus_freespin_bannerflair'
                         },
                         {
                             type: 'sprite',
                             position: [0, -110],
+                            scale: 2,
                             image: 'bonus_freespin_wontext'
                         },
                         {
@@ -1439,7 +1503,7 @@ App.Gameplay = new Screen({
                             type: 'sprite',
                             image: 'jpfirebanner',
                             position: [0, 100],
-                            scale: 2,
+                            scale: 4,
                         },
                         {
                             name: 'jackpot won value',
@@ -1478,620 +1542,6 @@ App.Gameplay = new Screen({
                                     interval:100,
                                 }//*/
                             ]},
-                    ]
-                }
-            ]
-        },
-        {
-            name: 'InfoContainer',
-            scaleStrategyPortrait: ['fit-to-screen', 1920, 900],
-            scaleStrategyLandscape: ['fit-to-screen', 1920, 900],
-            childs: [
-                {
-                    name: 'info container 1',
-                    scalePortrait: [0.76, 0.5],
-                    scalePortraitIPad: [0.76, 0.5],
-                    positionPortrait: [0, -270],
-                    scaleLandscape: [1, 1],
-                    positionPortraitIPad: [0, -270],
-                    positionPortraitIPhoneX: [0, -860],
-                    positionLandscape: [0, 0],
-                    visiblePortrait: false,
-                    visibleLandscape: false,
-                    childs: [
-                        {
-                            name: 'info container 1 background',
-                            type: 'sprite',
-                            positionLandscape: [0, 0],
-                            position: [0, 0],
-                            scalePortrait: [2.4, 1.2],
-                            scaleLandscape: [2.4, 1.53],
-                            image: 'wthelp.jpg',
-                            scaleLandscapeIPad: [2.4, 1.53],
-                            scaleLandscapeIPhoneX: [2.4, 1.53]
-                        },
-                        {
-                            name: 'info container 1 text 1',
-                            type: 'text',
-                            text: '100',
-                            positionPortrait: [-500, -320],
-                            positionLandscape: [-500, -410],
-                            positionLandscapeIPad: [-500, -310],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 2',
-                            type: 'text',
-                            text: '25',
-                            positionPortrait: [-500, -285],
-                            positionLandscape: [-500, -370],
-                            positionLandscapeIPad: [-500, -270],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 3',
-                            type: 'text',
-                            text: '7',
-                            positionPortrait: [-500, -250],
-                            positionLandscape: [-500, -330],
-                            positionLandscapeIPad: [-500, -230],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-
-                        {
-                            name: 'info container 1 text 4',
-                            type: 'text',
-                            text: '20',
-                            positionPortrait: [-500, -210],
-                            positionLandscape: [-500, -260],
-                            positionLandscapeIPad: [-500, -90],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 5',
-                            type: 'text',
-                            text: '10',
-                            positionPortrait: [-500, -175],
-                            positionLandscape: [-500, -220],
-                            positionLandscapeIPad: [-500, -50],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 6',
-                            type: 'text',
-                            text: '5',
-                            positionPortrait: [-500, -140],
-                            positionLandscape: [-500, -180],
-                            positionLandscapeIPad: [-500, -10],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-
-                        {
-                            name: 'info container 1 text 7',
-                            type: 'text',
-                            text: '10',
-                            positionPortrait: [-500, -90],
-                            positionLandscape: [-500, -120],
-                            positionLandscapeIPad: [-500, -90],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 8',
-                            type: 'text',
-                            text: '5',
-                            positionPortrait: [-500, -55],
-                            positionLandscape: [-500, -75],
-                            positionLandscapeIPad: [-500, -50],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 9',
-                            type: 'text',
-                            text: '3',
-                            positionPortrait: [-500, -20],
-                            positionLandscape: [-500, -30],
-                            positionLandscapeIPad: [-500, -10],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-
-                        {
-                            name: 'info container 1 text 10',
-                            type: 'text',
-                            text: '10',
-                            positionPortrait: [-500, 20],
-                            positionLandscape: [-500, 30],
-                            positionLandscapeIPad: [-500, 130],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 11',
-                            type: 'text',
-                            text: '5',
-                            positionPortrait: [-500, 55],
-                            positionLandscape: [-500, 70],
-                            positionLandscapeIPad: [-500, 170],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 12',
-                            type: 'text',
-                            text: '3',
-                            positionPortrait: [-500, 90],
-                            positionLandscape: [-500, 110],
-                            positionLandscapeIPad: [-500, 210],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-
-                        {
-                            name: 'info container 1 text 13',
-                            type: 'text',
-                            text: '500',
-                            positionPortrait: [0, -210],
-                            positionLandscape: [0, -270],
-                            positionLandscapeIPad: [0, -170],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 14',
-                            type: 'text',
-                            text: '50',
-                            positionPortrait: [0, -175],
-                            positionLandscape: [0, -225],
-                            positionLandscapeIPad: [0, -125],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 15',
-                            type: 'text',
-                            text: '10',
-                            positionPortrait: [0, -140],
-                            positionLandscape: [0, -180],
-                            positionLandscapeIPad: [0, -80],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-
-                        {
-                            name: 'info container 1 text 16',
-                            type: 'text',
-                            text: '50',
-                            positionPortrait: [0, 20],
-                            positionLandscape: [0, 25],
-                            positionLandscapeIPad: [0, -170],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 17',
-                            type: 'text',
-                            text: '25',
-                            positionPortrait: [0, 55],
-                            positionLandscape: [0, 70],
-                            positionLandscapeIPad: [0, -125],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 18',
-                            type: 'text',
-                            text: '5',
-                            positionPortrait: [0, 90],
-                            positionLandscape: [0, 115],
-                            positionLandscapeIPad: [0, -80],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-
-                        {
-                            name: 'info container 1 text 19',
-                            type: 'text',
-                            text: '8',
-                            positionPortrait: [750, -320],
-                            positionLandscape: [750, -410],
-                            positionLandscapeIPad: [530, -310],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 20',
-                            type: 'text',
-                            text: '4',
-                            positionPortrait: [750, -285],
-                            positionLandscape: [750, -370],
-                            positionLandscapeIPad: [530, -270],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 21',
-                            type: 'text',
-                            text: '2',
-                            positionPortrait: [750, -250],
-                            positionLandscape: [750, -330],
-                            positionLandscapeIPad: [530, -230],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-
-                        {
-                            name: 'info container 1 text 22',
-                            type: 'text',
-                            text: '8',
-                            positionPortrait: [750, -210],
-                            positionLandscape: [750, -260],
-                            positionLandscapeIPad: [530, -310],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 23',
-                            type: 'text',
-                            text: '4',
-                            positionPortrait: [750, -175],
-                            positionLandscape: [750, -220],
-                            positionLandscapeIPad: [530, -270],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 24',
-                            type: 'text',
-                            text: '2',
-                            positionPortrait: [750, -140],
-                            positionLandscape: [750, -180],
-                            positionLandscapeIPad: [530, -230],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-
-                        {
-                            name: 'info container 1 text 25',
-                            type: 'text',
-                            text: '8',
-                            positionPortrait: [750, -90],
-                            positionLandscape: [750, -120],
-                            positionLandscapeIPad: [530, -310],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 26',
-                            type: 'text',
-                            text: '4',
-                            positionPortrait: [750, -55],
-                            positionLandscape: [750, -75],
-                            positionLandscapeIPad: [530, -270],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 27',
-                            type: 'text',
-                            text: '2',
-                            positionPortrait: [750, -20],
-                            positionLandscape: [750, -30],
-                            positionLandscapeIPad: [530, -230],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-
-                        {
-                            name: 'info container 1 text 28',
-                            type: 'text',
-                            text: '5',
-                            positionPortrait: [750, 20],
-                            positionLandscape: [750, 30],
-                            positionLandscapeIPad: [530, -310],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 29',
-                            type: 'text',
-                            text: '2',
-                            positionPortrait: [750, 55],
-                            positionLandscape: [750, 70],
-                            positionLandscapeIPad: [530, -270],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 30',
-                            type: 'text',
-                            text: '1',
-                            positionPortrait: [750, 90],
-                            positionLandscape: [750, 110],
-                            positionLandscapeIPad: [530, -230],
-                            stylesPortrait: {fontSize: '28px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '36px', padding: 20, fill: 0xfef901}
-                        },
-
-                        {
-                            name: 'info container 1 text 31',
-                            type: 'text',
-                            text: 'Multiplier symbol doubles',
-                            positionPortrait: [560, 160],
-                            positionLandscape: [550, 200],
-                            positionLandscapeIPad: [530, 170],
-                            stylesPortrait: {fontSize: '36px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '26px', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 1 text 32',
-                            type: 'text',
-                            text: 'winnings',
-                            positionPortrait: [560, 200],
-                            positionLandscape: [550, 260],
-                            positionLandscapeIPad: [530, 170],
-                            stylesPortrait: {fontSize: '36px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '26px', padding: 20, fill: 0xfef901}
-                        },
-
-                        {
-                            name: 'info container 1 text 33',
-                            type: 'text',
-                            text: 'MULFUNCTION VOIDS ALL PAYS AND PLAYS.',
-                            positionPortrait: [0, 320],
-                            positionLandscape: [0, 400],
-                            positionLandscapeIPad: [0, 400],
-                            stylesPortrait: {fontSize: '36px', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '26px', padding: 20, fill: 0xffffff}
-                        }
-                    ]
-                },
-                {
-                    name: 'info container 2',
-                    scalePortrait: [0.76, 0.5],
-                    scalePortraitIPad: [0.76, 0.5],
-                    scaleLandscape: 1,
-                    positionPortrait: [0, -270],
-                    positionPortraitIPad: [0, -270],
-                    positionPortraitIPhoneX: [0, -860],
-                    positionLandscape: [0, 0],
-                    visiblePortrait: false,
-                    visibleLandscape: false,
-                    childs: [
-                        {
-                            name: 'info container 2 background',
-                            type: 'sprite',
-                            image: 'wlhelp.jpg',
-                            positionLandscape: [0, 0],
-                            position: [0, 0],
-                            scalePortrait: [2.4, 1.2],
-                            scaleLandscape: [2.4, 1.53],
-                            scaleLandscapeIPhoneX: [2.4, 1.53]
-                        },
-                        {
-                            name: 'info container 2 text 1',
-                            type: 'text',
-                            text: 'Wins pay only from the left to right',
-                            positionPortrait: [0, 180],
-                            positionLandscape: [0, 230],
-                            positionLandscapeIPad: [0, 300],
-                            stylesPortrait: {fontSize: '36px', fontWeight: 'Bold', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '46px', fontWeight: 'Bold', padding: 20, fill: 0xfef901}
-                        },
-                    ]
-                },
-                {
-                    name: 'info container 3',
-                    scalePortrait: [0.76, 0.5],
-                    scalePortraitIPad: [0.76, 0.5],
-                    scaleLandscape: 1,
-                    positionPortrait: [0, -270],
-                    positionPortraitIPad: [0, -270],
-                    positionPortraitIPhoneX: [0, -860],
-                    positionLandscape: [0, 0],
-                    visiblePortrait: false,
-                    visibleLandscape: false,
-                    childs: [
-                        {
-                            name: 'info container 3 background',
-                            type: 'sprite',
-                            image: 'freespin_help.jpg',
-                            position: [0, 0],
-                            scalePortrait: [2.4, 1.2],
-                            scaleLandscape: [2.4, 1.53],
-                            scaleLandscapeIPad: [2.4, 1.53],
-                            scaleLandscapeIPhoneX: [2.4, 1.53]
-                        },
-                        {
-                            name: 'info container 3 text 1',
-                            type: 'text',
-                            text: '3 or more PARTY TIME symbols on any position win',
-                            positionPortrait: [150, -210],
-                            positionLandscape: [170, -260],
-                            positionLandscapeIPad: [170, -300],
-                            styles: {fontSize: '36px', fontWeight: 'Bold', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 3 text 2',
-                            type: 'text',
-                            text: 'BONUSSPINS.',
-                            positionPortrait: [150, -150],
-                            positionLandscape: [170, -190],
-                            positionLandscapeIPad: [170, -250],
-                            styles: {fontSize: '36px', fontWeight: 'Bold', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 3 text 4',
-                            type: 'text',
-                            text: 'During bonus all symbols pay on any position.',
-                            positionPortrait: [150, -30],
-                            positionLandscape: [170, -20],
-                            positionLandscapeIPad: [170, -30],
-                            styles: {fontSize: '36px', fontWeight: 'Bold', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 3 text 5',
-                            type: 'text',
-                            text: 'Play the Bonus until you have no BONUSSSPINS left.',
-                            positionPortrait: [150, 120],
-                            positionLandscape: [170, 150],
-                            positionLandscapeIPad: [170, 170],
-                            styles: {fontSize: '36px', fontWeight: 'Bold', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 3 text 5',
-                            type: 'text',
-                            text: 'BONUSSPINS can be re-triggered during the Bonus.',
-                            positionPortrait: [150, 160],
-                            positionLandscape: [170, 210],
-                            positionLandscapeIPad: [170, 170],
-                            styles: {fontSize: '36px', fontWeight: 'Bold', padding: 20, fill: 0xfef901}
-                        },
-                    ]
-                },
-                {
-                    name: 'info container 4',
-                    scalePortrait: [0.76, 0.5],
-                    scalePortraitIPad: [0.76, 0.5],
-                    scaleLandscape: 1,
-                    positionPortrait: [0, -270],
-                    positionPortraitIPad: [0, -270],
-                    positionPortraitIPhoneX: [0, -860],
-                    positionLandscape: [0, 0],
-                    visiblePortrait: false,
-                    visibleLandscape: false,
-                    childs: [
-                        {
-                            name: 'info container 4 background',
-                            type: 'sprite',
-                            image: 'symbols_help.jpg',
-                            positionLandscape: [0, 0],
-                            position: [0, 0],
-                            scalePortrait: [2.4, 1.2],
-                            scaleLandscape: [2.4, 1.53],
-                            scaleLandscapeIPhoneX: [2.4, 1.53]
-                        },
-                        {
-                            name: 'info container 4 text 1',
-                            type: 'text',
-                            text: 'SCATTER symbol pays on any position.',
-                            positionPortrait: [300, -140],
-                            positionLandscape: [300, -190],
-                            positionLandscapeIPad: [170, 170],
-                            styles: {fontSize: '36px', fontWeight: 'Bold', padding: 20, fill: 0xfef901}
-                        },
-                        {
-                            name: 'info container 4 text 2',
-                            type: 'text',
-                            text: 'Multiplier symbol doubles winnings.',
-                            positionPortrait: [300, 110],
-                            positionLandscape: [300, 120],
-                            positionLandscapeIPad: [0, 300],
-                            styles: {fontSize: '36px', fontWeight: 'Bold', padding: 20, fill: 0xfef901},
-                            stylesLandscape: {fontSize: '46px', fontWeight: 'Bold', padding: 20, fill: 0xfef901}
-                        },
-                    ]
-                },
-                {
-                    name: 'info container controlls',
-                    visiblePortrait: false,
-                    visibleLandscape: false,
-                    scalePortrait: [1, 0.5],
-                    positionPortrait: [0, -113],
-                    positionPortraitIPad: [0, -113],
-                    positionLandscape: [0, 400],
-                    positionLandscapeIPad: [0, 400],
-                    scale: 1,
-                    childs: [
-                        {
-                            name: 'info container controlls current page bg',
-                            type: 'sprite',
-                            image: 'button-regular.png',
-                            positionPortrait: [-600, 0],
-                            positionLandscape: [-650, 0],
-                            positionLandscapeIPad: [-750, 0],
-                            scale: 1,
-                            childs: [
-                                {
-                                    name: 'info container controlls current page text 1',
-                                    type: 'text',
-                                    position: [0, 0],
-                                    styles: {fontSize: '46px', padding: 20, fill: 0xffffff}
-                                },
-                            ]
-                        },
-                        {
-                            name: 'info container controlls left arrow',
-                            type: 'sprite',
-                            image: 'button-regular.png',
-                            button: 'left arrow',
-                            position: [-100, 0],
-                            positionPortrait: [-400, 0],
-                            positionLandscape: [-450, 0],
-                            scale: 1,
-                            childs: [
-                                {
-                                    name: 'info container controlls left arrow text 1',
-                                    type: 'text',
-                                    text: '<<',
-                                    position: [0, 0],
-                                    styles: {fontSize: '46px', padding: 20, fill: 0xffffff}
-                                },
-                            ]
-                        },
-                        {
-                            name: 'info container controlls right arrow',
-                            type: 'sprite',
-                            image: 'button-regular.png',
-                            button: 'right arrow',
-                            position: [100, 0],
-                            positionPortrait: [400, 0],
-                            positionLandscape: [450, 0],
-                            scale: 1,
-                            childs: [
-                                {
-                                    name: 'info container controlls right arrow text 1',
-                                    type: 'text',
-                                    text: '>>',
-                                    position: [0, 0],
-                                    styles: {fontSize: '46px', padding: 20, fill: 0xffffff}
-                                },
-                            ]
-                        },
-                        {
-                            name: 'info container controlls return',
-                            type: 'sprite',
-                            image: 'button-regular.png',
-                            button: 'info close',
-                            visiblePortrait: false,
-                            visibleLandscape: true,
-                            positionPortrait: [600, 0],
-                            positionLandscape: [650, 0],
-                            positionLandscapeIPad: [750, 0],
-                            scale: 1,
-                            childs: [
-                                {
-                                    name: 'info container controlls return text 1',
-                                    type: 'text',
-                                    text: 'RETURN\nTO GAME',
-                                    position: [0, 0],
-                                    styles: {
-                                        fontWeight: 'Bold',
-                                        fontSize: '26px',
-                                        align: 'center',
-                                        padding: 20,
-                                        fill: 0xffffff
-                                    }
-                                },
-                            ]
-                        }
                     ]
                 }
             ]
@@ -2299,11 +1749,6 @@ App.Gameplay = new Screen({
             this['MenuContainer'].tween = this.tween({ to: ['alpha', 0, 1500, 0, Power1.easeOut] }, 'MenuContainer');
         },
 
-        'Gameplay automenu overlay up': function (container, e) {
-            MRAID.markMeaningfulInteraction();
-            this['AutoMenuContainer'].visible = this.automenu_mode = false;
-        },
-
         'overlay down': function () {
             MRAID.markMeaningfulInteraction();
             this['overlay'].visible = false;
@@ -2398,10 +1843,11 @@ App.Gameplay = new Screen({
                     drawed: this.denom_value_list[0] * this.line_value_list[0] * this.betperline_value_list[0],
                     step: 1
                 };
-                this.lines = { value: 1, step: 1 };
+                this.lines = { value: 30, step: 1 };
                 this.betperlines = { value: this.betperline_value_list[0], step: 1 }; //renameed from 'levels'
                 this.denomes = { value: this.denom_value_list[0], step: 1 }; //renameed from 'coins'
             }
+            this.autovalue = { value: this.autoValueList[0], step: 1};
             //this.spinCombinations = [];
 
             /*-----------------help indicator build start-----------------*/
@@ -2648,6 +2094,7 @@ App.Gameplay = new Screen({
                             name: 'reel ' + i + ' symbol ' + j + ' glow',
                             position: [0, this.ROWS_OFFSET * (j - 1)],
                             type: 'sprite',
+                            scale: 2,
                             image: 'jpearthglow',
                             visible: false
                         });
@@ -2673,9 +2120,9 @@ App.Gameplay = new Screen({
         'Gameplay resize': function () {
 
             // this['ErrorScreen'].visible = this.userBlockLayer === undefined && this.is_local_mode === false;
-            // this.refreshHelpValue();
             // this['bottom toggle menu'].interactive = true;
             this.refreshPanelValues();
+            // this.buttonHandleOpenMenu();
             /*if(this.spinIntroShow === true) {
                 this.spinIntroShow = false;
                 let frames = [];
@@ -2702,35 +2149,15 @@ App.Gameplay = new Screen({
             } else {
                 this['SplashScreen'].visible = false;
             }*/
-            /*this.helpArrowsSetPosition();
-            /!*
-            if (App.IsPortrait) {
-                this.helpPageVisabilityFlag = false;
-                this['info container ' + this.helpPageIndex].visible = true;
-                this['info container ' + this.helpPageIndex].alpha = 1;
-                this['info container controlls'].visability = true;
-                this['info container controlls'].alpha = 1;
-                this['MainContainer'].visible = 1;
-                this['ControlPanelContainer'].visible = 1;
-            }
-            *!/
-            else{
-            }
-
-            if(this.automenu_mode === true)
-                this['AutoMenuContainer'].visible = true;*/
             if (App.IsLandscape) {
                 this.setFreespinMode(this.isfreespin);
                 this.updatePickJackpotValue(false);
-                this.setButtonEnable('maxbet button', !this.isfreespin);
-                this.setButtonEnable('autospin button', !this.isfreespin);
-                this.setButtonEnable('betperline bar', !this.isfreespin);
-                this.setButtonEnable('denom bar', !this.isfreespin);
                 this.refreshPanelValues();
                 if (this.pickVisiblityFlag) {
                     this['PickContainer'].visible = true;
                     this['jackpot container'].visible = false;
                     this['pick jackpot container'].visible = true;
+                    this['SpinContainer'].visible = false;
                 }
             }
         },
@@ -2843,54 +2270,14 @@ App.Gameplay = new Screen({
             }, 300);
         },
 
+        'Gameplay toggle button down': function(container, e) {
+            this.handleToggleDown(container, e);
+        },
+
         'Gameplay button over': function (container, e) { this.handleButtonOver(container, e); },
         'Gameplay button out': function (container, e) { this.handleButtonOut(container, e); },
         'Gameplay button up': function (container, e) { this.handleButtonUp(container, e); },
         'Gameplay button down': function (container, e) { this.handleButtonDown(container,e); },
-
-        'Gameplay menu button button up': function (container, e) { this.handleButtonUp(container, e); },
-        'Gameplay menu button button down': function (container, e) { this.handleButtonDown(container,e); },
-
-        'Gameplay info close down': function () {
-            SoundManager.playSound('panel_menu');
-
-            this['MainContainer'].visible = 1;
-            this['ControlPanelContainer'].visible = 1;
-            this.tween({ to: ['alpha', 0, 250, 0, Power1.easeIn]}, 'overlay', () => { this['overlay'].visible = false; });
-            this.tween({ to: ['alpha', 0, 250, 0, Power1.easeIn]}, ['info container ' + this.helpPageIndex, 'info container controlls'], () => {
-                this['info container ' + this.helpPageIndex].visible = false;
-                this['info container controlls'].visible = false;
-            });
-            this.helpPageVisabilityFlag = false;
-        },
-
-        'Gameplay left arrow click': function () {
-            SoundManager.playSound('panel_sound');
-            if (this.helpPageIndex === 1) {
-                this.helpPageIndex = 4;
-                this.hideHelpPage(1);
-                this.showHelpPage(this.helpPageIndex);
-            } else {
-                this.hideHelpPage(this.helpPageIndex);
-                this.helpPageIndex--;
-                this.showHelpPage(this.helpPageIndex);
-            }
-            this.helpArrowsSetPosition();
-        },
-
-        'Gameplay right arrow click': function () {
-            SoundManager.playSound('panel_sound');
-            if (this.helpPageIndex === 4) {
-                this.helpPageIndex = 1;
-                this.hideHelpPage(4);
-                this.showHelpPage(this.helpPageIndex);
-            } else {
-                this.hideHelpPage(this.helpPageIndex);
-                this.helpPageIndex++;
-                this.showHelpPage(this.helpPageIndex);
-            }
-            this.helpArrowsSetPosition();
-        },
 
         'Gameplay bonus close down': function () {
             this.tween({ to: ['alpha', 0, 250, 0, Power1.easeIn] }, 'overlay', () => {this['overlay'].visible = false; });
@@ -2995,7 +2382,6 @@ App.Gameplay = new Screen({
                 this.credits.drawed = this.credits.value;
                 this.server_win_amount.value = 0;
                 this.server_win_amount.drawed = 0;
-                this['win bar'].drawed = 0;
                 this.creditsNotInc = true;
             } else {
                 this.auto_mode = false;
@@ -3014,27 +2400,17 @@ App.Gameplay = new Screen({
         this.wildBackTween.hideQuick();
         this.hideWinLogo();
 
-        var self = this;
         this.spinCombination = null;
         this.auto_mode = (this.current_auto_amount > 0);
+        this['spin button'].visible = false;
         if(this.auto_mode === true) {
-            this.setButtonEnable('maxbet button', false);
-            this.setButtonEnable('autospin button', false);
-            this.setButtonEnable('betperline bar', false);
-            this.setButtonEnable('denom bar', false);
+            this['spinstop button'].visible = true;
             this.current_auto_amount--;
-
             if(this.current_auto_amount === 0){
                 this.auto_mode = false;
-                this.setButtonEnable('maxbet button', true);
-                this.setButtonEnable('autospin button', true);
-                this.setButtonEnable('betperline bar', true);
-                this.setButtonEnable('denom bar', true);
             }
         }
         if(this.isfreespin && ((this.freespin_count - 1) === this.freespin_index)) {
-            this['spin button text1'].visible = false;
-            this['spin button'].texture = this.getTexture("Spin_Button");
             this.freespinEnd = true;
         }
         this.refreshPanelValues();
@@ -3043,6 +2419,7 @@ App.Gameplay = new Screen({
         $.when((this.is_local_mode?this.getFakeServerData():this.getServerCardsInfo(this.bet.step, this.isfreespin))).done((response) => {
             var serverData = response;
             if (serverData.error == "0") {
+                this['spinstop button'].visible = true;
                 /*if (this.isfreespin && this.freespin_count !== this.freespin_index) {
                     clearTimeout(this.tickerTimeout);
                     this.total_freespin_amount += serverData.response.winAmount;
@@ -3159,11 +2536,10 @@ App.Gameplay = new Screen({
                     if(this.freespin_count !== this.freespin_index) {
                         this.total_freespin_amount += serverData.response.winAmount;
                         this.freespin_index ++;
-                        this['freespin count text'].text = this.freespin_count - this.freespin_index;
+                        this['freespin count text'].text = `SPINS: ${this.freespin_count - this.freespin_index}`;
                     }
                     if((this.freespin_count - 1) === this.freespin_index) {
-                        this['spin button text1'].visible = false;
-                        this['spin button'].texture = this.getTexture("Spin_Button");
+                        this['bottom freespin bar'].visible = false;
                         this.freespinEnd = true;
                     }
                 }
@@ -3326,12 +2702,18 @@ App.Gameplay = new Screen({
             }
         //end of replace drop movies
 
+        if(this.auto_mode) {
+
+        } else if(this.isfreespin) {
+
+        } else {
+            this['spin button'].visible = true;
+            this['spinstop button'].visible = false;
+        }
         if (this.isfreespin && this.freespinEnd) {
+            this['spin button'].visible = true;
+            this['spinstop button'].visible = false;
             this.isfreespin = false;
-            this.setButtonEnable('maxbet button', true);
-            this.setButtonEnable('autospin button', true);
-            this.setButtonEnable('betperline bar', true);
-            this.setButtonEnable('denom bar', true);
             setTimeout(() => {
                 this.endFreespinAnimation();
             }, 3000);
@@ -3343,11 +2725,15 @@ App.Gameplay = new Screen({
         }, 3000);
 
         if(this.isfreespin && this.isfreespinStart === true) {
+            this.state = 'pick';
+            this['spin button'].visible = true;
+            this['spinstop button'].visible = false;
             this.tempAutoMode = this.auto_mode;
             this.tempCurrentAutoAmount = this.current_auto_amount;
             this.auto_mode = false;
             this.current_auto_amount = 0;
             setTimeout(() => {
+                this.state = 'ready';
                 SoundManager.stopAllSound();
                 this.isfreespinStart = false;
                 this.pickContainerAnimation();
@@ -3762,25 +3148,6 @@ App.Gameplay = new Screen({
         }
     },
 
-    freespinAnimation: function () {
-        if (this.freespin_count < 1) return;
-        this['freespin info'].visible = true;
-        // this['bonus container'].visible = true;
-        this['overlay'].visible = true;
-        SoundManager.playSound('reelstart');
-        this['freespin info text 3'].text = this.freespin_count + " BONUSSPINS";
-        this['freespin info text 2'].text = "During bonus all symbols pay on \n any position.";
-        this.tween({ set: ['alpha', 0], to: ['alpha', 1, 250, 100, Power1.easeOut]}, 'freespin info');
-        this.tween({ set: ['alpha', 0], to: ['alpha', 0.6, 250, 100, Power1.easeOut]}, 'overlay');
-        var self = this;
-        setTimeout(function () {
-            self.tween({ to: ['alpha', 0, 250, 0, Power1.easeIn]}, 'freespin info', () => { self['freespin info'].visible = false; });
-            self.tween({ to: ['alpha', 0, 250, 0, Power1.easeIn]}, 'overlay', ()=>{ self['overlay'].visible = false; });
-            //self['button bet'].visible = false;
-            //self['button more'].visible = false;
-        }, 2000);
-    },
-
     startFlashWhite: function (white = true) {
         this['FlashContainer'].visible = true;
         this.tween({
@@ -3815,6 +3182,7 @@ App.Gameplay = new Screen({
             this['PickContainer'].visible = true;
             this['jackpot container'].visible = false;
             this['pick jackpot container'].visible = true;
+            this['SpinContainer'].visible = false;
             for(let i = 1; i < 11; i++) {
                 this[`pick item ${i}`].visible = true;
                 this[`pick item ${i} back`].visible = true;
@@ -4057,17 +3425,11 @@ App.Gameplay = new Screen({
         setTimeout(() => {
             if(type === 'begin') {
                 this.exitPickcontainerAnimation();
+                this['bottom freespin bar'].visible = true;
                 this[`pick open ${type} container`].visible = false;
                 this['pick open back'].visible = false;
                 this.isfreespin = true;
-                // this.current_auto_amount = this.freespin_count;
-                this.setButtonEnable('maxbet button', false);
-                this.setButtonEnable('autospin button', false);
-                this.setButtonEnable('betperline bar', false);
-                this.setButtonEnable('denom bar', false);
                 this['spin button text1'].visible = true;
-                this['startfreespin button'].visible = false;
-                this['spin button'].texture = this.getTexture("Spin_ButtonBlankUp");
                 this.state = 'ready';
             } else {
                 this.setActiveTouchItems(true);
@@ -4125,7 +3487,6 @@ App.Gameplay = new Screen({
     },
 
     updateRemainingText: function() {
-        console.log(this.tempFreespinCount)
         this.tween({
             set: ['drawed', this['pick remaining text'].drawed],
             to: ['drawed', this.tempFreespinCount, 500, 100, Power1.easeIn],
@@ -4209,6 +3570,7 @@ App.Gameplay = new Screen({
                     to: ['alpha', 0, 500]
                 }, 'FreespinWonContainer');
                 setTimeout(() => {
+                    this['SpinContainer'].visible = true;
                     this['Woncontainer'].visible = false;
                 }, 500);
             }, 3000);
@@ -4227,25 +3589,6 @@ App.Gameplay = new Screen({
         }
         this['jackpot container'].visible = !freeMode;
         this['pick jackpot container'].visible = freeMode;
-    },
-
-    completeFreespin: function () {
-        this['freespin info'].visible = true;
-        // this['bonus container'].visible = true;
-        // this['overlay'].visible = true;
-        SoundManager.playSound('reel_stop');
-        this['freespin info text 3'].text = this.total_freespin_amount;
-        this['freespin info text 2'].text = "BONUSSPINS PLAYED: " + this.freespin_count;
-
-        this.tween({ set: ['alpha', 0], to: ['alpha', 1, 250, 100, Power1.easeOut]}, 'freespin info');
-        this.tween({ set: ['alpha', 0], to: ['alpha', 0.6, 250, 100, Power1.easeOut]}, 'overlay');
-
-        var self = this;
-        setTimeout(function () {
-            self.tween({ to: ['alpha', 0, 250, 0, Power1.easeIn]}, 'freespin info', () => {  self['freespin info'].visible = false; });
-            self['button bet'].visible = true;
-            self['button more'].visible = true;
-        }, 2000);
     },
 
     animFieldPoints: function (fieldName, points, bAnim/*=false*/, speed/*=0*/) {
@@ -4392,25 +3735,18 @@ App.Gameplay = new Screen({
 
         let name = container.name;
         switch (name) {
-            case 'menu button': this.buttonHandlerMenu(container, name); break;
-            case 'maxbet button': this.buttonHandlerMaxBet(container, name); break;
-            case 'autospin button':  this.buttonHandlerAutoSpin(container, name);   break;
-            case 'stopautospin button': this.buttonHandlerStopAutoSpin(container, name); break;
-            case 'startautospin button':
             case 'spin button':
-                if(this.auto_mode)
-                    this.buttonHandlerStopAutoSpin(container, name);
-                else
-                    this.buttonHandleSpin();
+                this.buttonHandleSpin();
                 break;
-            // case 'skip button':  this.buttonHandleSkip(container, name);  break;
-            // case 'menu button sound':  this.buttonHandlerSound(container, name);   break;
-            case 'menu button turbo':   this.buttonHandlerTurbo(container, name);  break; //speed mode
-            // case 'menu button lobby':   this.buttonHandlerLobby(container, name);  break;
+            case 'spinstop button':
+                this.buttonHandlerStopAutoSpin(container, name);
+                break;
             case 'betperline bar down':   this.buttonHandleBetPerLineUpDown(false, container, name);  break;
             case 'betperline bar up': this.buttonHandleBetPerLineUpDown(true, container, name); break;
             case 'denom bar down': this.buttonHandleDenomUpDown(false, container, name); break;
             case 'denom bar up': this.buttonHandleDenomUpDown(true, container, name); break;
+            case 'autoplay bar down': this.buttonHandleAutoUpDown(false, container, name); break;
+            case 'autoplay bar up': this.buttonHandleAutoUpDown(true, container, name); break;
             case 'help left arrow button': this.helpPageIndex --; this.refreshHelpIndicator(); break;
             case 'help right arrow button': this.helpPageIndex ++; this.refreshHelpIndicator(); break;
             case 'bottom toggle menu': this.buttonHandleOpenMenu(); break;
@@ -4418,13 +3754,6 @@ App.Gameplay = new Screen({
             case 'control menu sound': this.buttonHandlerSound(); break;
             case 'control menu info': this.buttonHandleInfo(); break;
             case 'control menu betsettings': this.buttonHandleBetsettings(); break;
-            default:
-                if(name.indexOf('automenu') == 0){
-                    this.buttonHandleAutoItem(container, name);
-                }
-                else {
-                }
-                break;
         }
     },
 
@@ -4434,137 +3763,78 @@ App.Gameplay = new Screen({
         this[nameGlow1].tween = this.tween({ to: ['alpha', 1, 150, 0, Power1.easeOut]}, nameGlow1);
         this.cur_mouse_capture_container_name = container.name;
     },
-//###### Special button handlers...
-    buttonHandlerMaxBet:function(container, name){
-        if (this.state !== 'ready' || this['maxbet button'].texture === this.getTexture("Max_ButtonDeactivate")) return;
-        SoundManager.playSound('panel_max');
-        this.stopWinAnimation();
-        this.setBetAmountValues(this.lines.step, this.betperline_value_list.length, this.denomes.step);
-    },
-    buttonHandlerAutoSpin: function (container, name) {
-        if (this.state !== 'ready' || this['autospin button'].texture === this.getTexture("Auto_ButtonDeactivate")) return;
-        this.is_win_anim = false;
-        SoundManager.playSound('panel_auto');
-        this.automenu_mode = this.automenu_mode !== true;
-        this['AutoMenuContainer'].visible = this.automenu_mode;
-    },
-    buttonHandleAutoItem: function (container, name) {
-        if (this.state !== 'ready') return;
-        this.is_win_anim = false;
-        this.current_auto_amount = container.step;
-        this['AutoMenuContainer'].visible = this.automenu_mode = false;
-        this.refreshPanelValues();
 
-        SoundManager.playSound('auto_' + container.step);
-    },
-
-    buttonHandlerMenu: function (container, name) {
-        if (this.state !== 'ready') return;
-        this.is_win_anim = false;
-        SoundManager.playSound('panel_menu');
-        if (this.menu_mode != true) {
-            this.menu_mode = true;
-        } else {
-            this.menu_mode = false;
+    handleToggleDown: function(container, e) {
+        let name = container.name;
+        switch (name) {
+            case 'control setting sound toggle':
+                this.buttonHandlerSound();
+                break;
+            case 'control setting turbo toggle':
+                this.buttonHandlerTurbo();
+                break;
         }
-        this['MenuContainer'].visible = this.menu_mode;
     },
-
+//###### Special button handlers...
     buttonHandlerStopAutoSpin: function (container, name) {
         if(this.isfreespin) {
             return;
         }
         SoundManager.playSound('panel_auto');
-        this.auto_mode = false;
-        this.current_auto_amount = 0;
-        this.refreshPanelValues();
+        if(this.auto_mode){
+            this['spinstop button'].visible = false;
+            this['spin button'].visible = true;
+            this.auto_mode = false;
+            this.current_auto_amount = 0;
+            this.autovalue.step = 1;
+            this.refreshPanelValues();
+        }
     },
 
     buttonHandleSpin: function () {
         if (this.credits.value < this.bet.amount)
             return;
         if (this.state !== 'ready') return;
+        if(this.isfreespin && this.isfreespinStart === true) return;
         if(this.isfreespin) {
             this['spin button text1'].visible = false;
-            this['startfreespin button'].visible = true;
         }
         this.spin();
     },
 
     buttonHandlerSound: function (container, name) {
         SoundManager.toggleSoundButton();
-        if(SoundManager.sound_mode)
+        if(SoundManager.sound_mode){
             this['control menu sound'].texture = this.getTexture('menu_sound')
-        else
+            this.toggleButton('control setting sound toggle', 'on');
+        } else {
             this['control menu sound'].texture = this.getTexture('menu_soundoff')
-        // this[name + ' off'].visible = !SoundManager.sound_mode;
-        // this[name + ' check'].visible = SoundManager.sound_mode;
+            this.toggleButton('control setting sound toggle', 'off');
+        }
     },
     //speed mode
-    buttonHandlerTurbo: function (container, name) {
+    buttonHandlerTurbo: function () {
         if (this.state !== 'ready') return;
-        if (!this.speed_play_mode) {
-            this.speed_play_mode = true;
-            this.REELS_STOP_TIMEOUT = 1000;
-            this.REELS_STOP_DELAY = 0;
-            this.REELS_START_TIMEOUT = 150;
-            this.REELS_START_DELAY = 0;
-            this[name + ' off'].visible = false;
-            this[name + ' check'].visible = true;
-            // this[name + ' check'].texture = this.getTexture('markcheck_hd');
-            //SoundManager.playSound('turbo_on');
-        } else {
-            this.speed_play_mode = false;
+        this.speed_play_mode = !this.speed_play_mode;
+        if (this.speed_play_mode) {
             this.REELS_STOP_TIMEOUT = 1000;
             this.REELS_STOP_DELAY = 400;
             this.REELS_START_TIMEOUT = 0;
             this.REELS_START_DELAY = 150;
-            this[name + ' off'].visible = true;
-            this[name + ' check'].visible = false;
-            // this[name + ' check'].texture = this.getTexture('markX_hd');
-            //SoundManager.playSound('turbo_off');
-        }
-    },
-
-    setButtonEnable: function(target, enable = true) {
-        let targetNames = ['maxbet button', 'autospin button', 'betperline bar', 'denom bar'];
-        let activeImageName = ['Max_Button', 'Auto_Button', 'BetPerDenom_Button', 'BetPerDenom_Button'];
-        for(let i = 0; i < targetNames.length; i++) {
-            if(targetNames.indexOf(target) !== -1){
-                if(enable) {
-                    this[target].texture = this.getTexture(activeImageName[targetNames.indexOf(target)]);
-                } else {
-                    this[target].texture = this.getTexture(activeImageName[targetNames.indexOf(target)] + "Deactivate");
-                }
-            }
-        }
-    },
-
-    showHelpPage: function (index) {
-        this['info container ' + index].visible = true;
-        this['info container ' + index].alpha = 1;
-    },
-
-    hideHelpPage: function (index) {
-        this['info container ' + index].visible = false;
-        this['info container ' + index].alpha = 0;
-    },
-
-    helpArrowsSetPosition: function () {
-        if (this.helpPageIndex !== 1) {
-            this['info container controlls left arrow'].position.set(-100, 0);
-            this['info container controlls right arrow'].position.set(100, 0);
+            this.toggleButton('control setting turbo toggle', 'on');
         } else {
-            this['info container controlls left arrow'].position.set(this.leftArrowInitialPosition, 0);
-            this['info container controlls right arrow'].position.set(this.rightArrowInitialPosition, 0);
+            this.REELS_STOP_TIMEOUT = 1000;
+            this.REELS_STOP_DELAY = 0;
+            this.REELS_START_TIMEOUT = 150;
+            this.REELS_START_DELAY = 0;
+            this.toggleButton('control setting turbo toggle', 'off');
         }
     },
 
-    buttonHandlerLobby: function (container, name) {
-        SoundManager.playSound('panel_lobby');
-        if (this.state !== 'ready') return;
-        this.closeGame();
-        console.log("### Menu-Lobby Clicked!!!");
+    toggleButton: function(name, status) {
+        this[`${name}`].toggle = status;
+        this[`${name} on`].visible = status === 'on';
+        this[`${name} off`].visible = status === 'off';
     },
 
     buttonHandleBetPerLineUpDown: function (bUp, container, name) {
@@ -4593,15 +3863,34 @@ App.Gameplay = new Screen({
         this.setBetAmountValues(this.lines.step, this.betperlines.step, cur_step);
         SoundManager.playSound('denom_' + cur_step);
     },
+    buttonHandleAutoUpDown: function (bUp, container, name) {
+        if (this.state !== 'ready' || this['autoplay bar'].texture === this.getTexture("BetPerDenom_ButtonDeactivate")) return;
+        this.is_win_anim = false;
+        var cur_step = this.autovalue.step;
+        if (bUp == true) {
+            cur_step++;  cur_step = Math.min(cur_step, this.autoValueList.length);
+        }
+        else {
+            cur_step--; cur_step = Math.max(cur_step, 1);
+        }
+        this.current_auto_amount = this.autoValueList[cur_step - 1];
+        this.auto_mode = this.current_auto_amount > 0;
+        this.refreshPanelValues();
+        SoundManager.playSound('denom_' + cur_step);
+        this.autovalue.step = cur_step;
+    },
     buttonHandleOpenMenu: function() {
+        if(this.state !== 'ready') return;
         if(this['bottom toggle menu'].texture == this.getTexture("menu_open")) {
             this['bottom toggle menu'].texture = this.getTexture("menu_close");
             this['ControlContainer'].visible = true;
             this['JackpotContainer'].visible = false;
+            this['SpinContainer'].visible = false;
         } else {
             this['bottom toggle menu'].texture = this.getTexture("menu_open");
             this['ControlContainer'].visible = false;
             this['JackpotContainer'].visible = true;
+            this['SpinContainer'].visible = true;
         }
     },
 
@@ -4634,8 +3923,8 @@ App.Gameplay = new Screen({
 
     setBetAmountValues: function(line_step, betperline_step, denom_step){
         var line_value = this.line_value_list[0];
-        var betperline_value = this.betperline_value_list[betperline_step -1 ];
-        var denom_value = this.denom_value_list[denom_step -1 ];
+        var betperline_value = this.betperline_value_list[betperline_step -1];
+        var denom_value = this.denom_value_list[denom_step -1];
 
         var betAmount = this.lines.value * betperline_value * denom_value;
         if (this.credits.value < betAmount)
@@ -4655,11 +3944,10 @@ App.Gameplay = new Screen({
     refreshPanelValues: function() {
         if(this.credits === undefined)
             return;
-        this.animFieldPoints('credits', this.credits.drawed.toString());
-        this.animFieldPoints('lines bar', this.lines.value);
-        this.animFieldPoints('win bar', this.server_win_amount.drawed, true);
-        this.animFieldPoints('betperline bar', this.betperlines.value);
-        this.animFieldPoints('denom bar', this.denomes.value);
+         /*this.animFieldPoints('win bar', this.server_win_amount.drawed, true);
+         this.animFieldPoints('lines bar', this.lines.value);*/
+         this.animFieldPoints('betperline bar', this.betperlines.value);
+         this.animFieldPoints('denom bar', this.denomes.value);
 
         this['ballance text'].text = 'BALANCE: ' + this.numberToString(this.credits.drawed);
         this['betamount text'].text = 'BET: ' + this.numberToString(this.bet.amount);
@@ -4668,36 +3956,28 @@ App.Gameplay = new Screen({
             this.animFieldPoints('jackpot_' + i, this.jackpot_value_list[i]*this.betperlines.value);
         }
 
-        this['autospin button text'].text = (this.current_auto_amount > 0 && !this.isfreespin) ? this.current_auto_amount.toString() : 'AUTO';
+        this['autospin button text'].text = (this.current_auto_amount > 0 && !this.isfreespin) ? this.current_auto_amount.toString() : '';
+        // this['spinstop button'].visible = this.current_auto_amount > 0 && !this.isfreespin;
 
         // visible
-        this['stopautospin button'].visible = this.auto_mode && !this.isfreespin;
-        this['startfreespin button'].visible = this.isfreespin && this.isfreespinStart === false;
-        this['startautospin button'].visible = (this.current_auto_amount > 0) && (!this.auto_mode);
+        // this['stopautospin button'].visible = this.auto_mode && !this.isfreespin;
+        // this['startfreespin button'].visible = this.isfreespin && this.isfreespinStart === false;
+        // this['startautospin button'].visible = (this.current_auto_amount > 0) && (!this.auto_mode);
+
+        this['autoplay bar text'].text = this.current_auto_amount;
 
         if(this.isfreespin && this.isfreespinStart === false) {
             if(this.freespin_count !== this.freespin_index) {
-                this['freespin count text'].text = this.freespin_count - this.freespin_index;
+                this['freespin count text'].text = `SPINS: ${this.freespin_count - this.freespin_index}`;
             }
         }
+        this['freespin totalwin text'].text = `TOTAL WIN: ${this.total_freespin_amount}`;
 
-        // enable / disable
-        if((!this.auto_mode )&& (this.state == 'ready')) {
-            this.setButtonEnable('maxbet button', true);
-            this.setButtonEnable('autospin button', true);
-            this.setButtonEnable('betperline bar', true);
-            this.setButtonEnable('denom bar', true);
-        }
-
-        this['autospin button'].interactive = (!this.auto_mode);
-        this['menu button'].interactive =  (!this.auto_mode);
+        // this['autospin button'].interactive = (!this.auto_mode);
         this['betperline bar down'].interactive = (!this.auto_mode )&& (this.state == 'ready');
         this['betperline bar up'].interactive = (!this.auto_mode) && (this.state == 'ready');
         this['denom bar down'].interactive = (!this.auto_mode) && (this.state == 'ready');
         this['denom bar up'].interactive = (!this.auto_mode) && (this.state == 'ready');
-
-        this.tween({ to: ['position', [-110 + 110 * this.betperlines.step / this.betperline_value_list.length, 30],100] }, this['betperline bar progressMask']);
-        this.tween({ to: ['position', [-110 + 110 * this.denomes.step / this.denom_value_list.length, 30],100]}, this['denom bar progressMask']);
     },
 
     tintTween: function (name) {
@@ -4755,6 +4035,7 @@ App.Gameplay = new Screen({
     first_reel: 0,
 
     jackpotList: ['wind', 'thunder', 'water', 'fire', 'earth'],
+    autoValueList: [0, 10, 25, 50, 100, 200, 500],
 
     back_sound: null,
     finish_sound : false,
@@ -4781,8 +4062,8 @@ App.Gameplay = new Screen({
 
     getFakeServerData: function () {
         var rand = _.random(0, 3);
-        var rand = this.isfreespin ? 8 : 7;
-        // rand = 8;
+        var rand = this.isfreespin ? 9 : 7;
+        // rand = 9;
         switch (rand) {
             case 1: //Win 2 - Q, K, Wild: Q or K will blank, Wild is movie-clip
                 var response = {"error":"0","response":{"valid":1,"initCards":[[12,1,7],[0,12,2],[1,3,12],[8,9,5],[5,8,3]],"arrRetVal":[{"retType":0,"win":50,"lineposIdx":12,"cardCount":3},{"retType":0,"win":4,"lineposIdx":16,"cardCount":2},{"retType":4,"arrMatchedCardsXPos":[0,1,2],"arrMatchedCardsYPos":[0,1,2],"win":150,"pickCardData":[{"type":"earthJackpot"},{"type":"earthJackpot"},{"type":"windJackpot"},{"type":"begin"}],"pickDetail":{"freeSpinCount":10,"pickCount":4,"windJackpot":450,"windJackpotCount":17,"thunderJackpot":450,"thunderJackpotCount":18,"waterJackpot":600,"waterJackpotCount":18,"fireJackpot":750,"fireJackpotCount":18,"earthJackpot":1200,"earthJackpotCount":16}}],"arrJackpot":[300,450,600,750,900],"betAmount":30,"originalBetAmount":30,"winAmount":204,"winType":2,"balance":8688}};
@@ -4824,6 +4105,9 @@ App.Gameplay = new Screen({
                 break;
             case 8:
                 var response = {"error":"0","response":{"valid":1,"initCards":[[2,7,3],[7,0,8],[11,10,5],[11,7,10],[11,4,7]],"arrRetVal":[{"retType":0,"win":2,"lineposIdx":4,"cardCount":2},{"retType":0,"win":2,"lineposIdx":14,"cardCount":2},{"retType":0,"win":2,"lineposIdx":18,"cardCount":2}],"arrJackpot":[300,450,600,750,900],"betAmount":30,"originalBetAmount":30,"winAmount":6,"winType":0,"balance":157122}};
+                break;
+            case 9:
+                var response = {"error":"0","response":{"valid":1,"initCards":[[12,1,7],[0,12,2],[1,3,4],[8,9,5],[5,8,3]],"arrRetVal":[{"retType":0,"win":50,"lineposIdx":12,"cardCount":3},{"retType":0,"win":4,"lineposIdx":16,"cardCount":2},{"retType":4,"arrMatchedCardsXPos":[0,1],"arrMatchedCardsYPos":[0,1],"win":30}],"arrJackpot":[300,450,600,750,900],"betAmount":30,"originalBetAmount":30,"winAmount":84,"winType":1,"balance":33952}};
                 break;
             default: //normal
                 var response = {"error":"0","response":{"initCards":[[6,1,1],[0,7,0],[6,3,6],[5,6,2],[2,5,2]],"arrRetVal":[],"betAmount":0.3,"winAmount":0,"balance":10000}};
